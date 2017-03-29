@@ -1,0 +1,19 @@
+#include<iostream.h>
+#include<string.h>
+void main()
+{
+char s[20];
+cout<<"Enter the name of your course: ";
+cin>>s;
+try
+{
+if(s=="B.Sc - IT" || s=="BMS" || s=="B.Com")
+cout<<endl<<"Your have chosen Course: "<<s;
+ else
+throw(s);
+}catch(string ss)
+{
+cout<<endl<<"Oh!!!!!!!!! you have chosen the course that we don't provide: "<<ss;
+}
+}
+}
