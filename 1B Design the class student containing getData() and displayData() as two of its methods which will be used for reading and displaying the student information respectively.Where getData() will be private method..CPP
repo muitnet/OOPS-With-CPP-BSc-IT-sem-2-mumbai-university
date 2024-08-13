@@ -1,41 +1,49 @@
-#include<iostream.h>
-#include<conio.h>
+#include <iostream>
+#include <string>  // For using std::string
 
-class student
+using namespace std;
+
+class Student
 {
-	char name[20],div[5],std[10],add[20];
-	int roll_no;
-	void getdata()
-	{
-		cout<<"enter the name :";
-		cin>>name;
-		cout<<"enter the roll number :";
-		cin>>roll_no;
-		cout<<"enter the division :";
-		cin>>div;
-		cout<<"enter the standerd :";
-		cin>>std;
-		cout<<"enter the address :";
-		cin>>add;
-	}
-	public:
+    string name, div, std, add;
+    int roll_no;
 
-	void displaydata()
-	{
-		getdata();
-		cout<<"THE ENTERED INFORMATION OF STUDENT IS : "<<endl;
-		cout<<"the name is : "<<name<<endl;
-		cout<<"the roll no is : "<<roll_no<<endl;
-		cout<<"the division is : "<<div<<endl;
-		cout<<"the standerd is : "<<std<<endl;
-		cout<<"Address is : "<<add<<endl;
-	}
+    void getdata()
+    {
+        cout << "Enter the name: ";
+        getline(cin, name);  // To capture the entire line including spaces
+
+        cout << "Enter the roll number: ";
+        cin >> roll_no;
+
+        cout << "Enter the division: ";
+        cin >> div;
+
+        cout << "Enter the standard: ";
+        cin >> std;
+
+        cin.ignore();  // To ignore the newline character left by cin
+        
+        cout << "Enter the address: ";
+        getline(cin, add);  // To capture the entire line including spaces
+    }
+
+public:
+    void displaydata()
+    {
+        getdata();
+        cout << "\nThe entered information of the student is:\n";
+        cout << "Name: " << name << endl;
+        cout << "Roll Number: " << roll_no << endl;
+        cout << "Division: " << div << endl;
+        cout << "Standard: " << std << endl;
+        cout << "Address: " << add << endl;
+    }
 };
 
-void main()
+int main()
 {
-    clrscr();
-	student s1;
-	s1.displaydata();
-	getch();
+    Student s1;
+    s1.displaydata();
+    return 0;
 }
